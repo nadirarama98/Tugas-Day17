@@ -46,18 +46,19 @@ class TestLogin(unittest.TestCase):
         driver = self.browser #buka web browser
         driver.get("http://barru.pythonanywhere.com/daftar") # buka situs
         time.sleep(1)
-        driver.find_element(By.ID, "signin_login").click()
-        driver.find_element(By.ID,"email").send_keys("nadirarama98@gmail.com") # isi email
+        driver.find_element(By.ID, "signUp").click()
+        driver.find_element(By.ID,"name_register").send_keys("rama") # isi nama
         time.sleep(1)
-        driver.find_element(By.ID,"password").send_keys("dira039801") # isi password
+        driver.find_element(By.ID,"email_register").send_keys("nadira_ramadani@yahoo.com") # isi email
         time.sleep(1)
-        driver.find_element(By.ID, "signin_login").click()
+        driver.find_element(By.ID,"password_register").send_keys("rama1998") # isi password
+        time.sleep(1)
+        driver.find_element(By.ID, "signup_register").click()
         time.sleep(1)
 
     # validasi
         response_data = driver.find_element(By.CLASS_NAME,"swal2-title").text
-        self.assertIn('Welcome nadira', response_data)
-
+        self.assertIn('berhasil', response_data)
 
     def tearDown(self):
      self.browser.close()
